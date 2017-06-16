@@ -1,3 +1,4 @@
+from train import Train
 class Madaraka:
     def book_seat(self):
         pass
