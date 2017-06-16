@@ -14,6 +14,10 @@ import sys
 import cmd
 from docopt import docopt, DocoptExit
 
+from madaraka import Madaraka
+
+madaraka = Madaraka()
+
 def docopt_cmd(func):
     """
     This decorator is used to simplify the try/except block and pass the result
@@ -45,6 +49,14 @@ class MyInteractive (cmd.Cmd):
     @docopt_cmd
     def do_book_seat(self, args):
         """Usage: book_seat"""
+        
+        madaraka.book_seat()
+        
+    @docopt_cmd
+    def do_retrieve_manifest(self, args):
+        """Usage: retrieve_manifest"""
+        
+        madaraka.retrieve_manifest()
         
         
     def do_quit(self, args):
