@@ -3,7 +3,7 @@
 This example uses docopt with the built in cmd module to demonstrate an 
 interactive command application.
 Usage:
-    run_sgr create_room <room_type> <room_name>...
+    run_sgr book_seat <first_name> <last_name> <seat_no>...
     run_allocator (-i | --interactive)
     run_allocator (-h | --help)
 Options:
@@ -48,9 +48,13 @@ class MyInteractive (cmd.Cmd):
     
     @docopt_cmd
     def do_book_seat(self, args):
-        """Usage: book_seat"""
+        """Usage: book_seat <first_name> <last_name> <seat_no>"""
         
-        madaraka.book_seat()
+        fname = args['<first_name>']
+        lname = args['<last_name>']
+        seat_no = args['<seat_no>']
+        
+        madaraka.book_seat(fname, lname, seat_no)
         
     @docopt_cmd
     def do_retrieve_manifest(self, args):

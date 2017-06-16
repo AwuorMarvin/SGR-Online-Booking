@@ -8,12 +8,13 @@ class Train(object):
 		self.seat_numbers={}
 
 
-		def __create_seats():
+		def create_seats():
 			for s in range(1, capacity+1):
 				self.seat_numbers[s] = Seats(str(s))
 
 		def add_booking(self, seat_no, passenger):
 			self.manifest[seat_no] = passenger
+                 self.seat_numbers[seat_no] = True
 
 		def update_manifest(self, seat_no, passenger):
 			self.manifest[seat_no] = passenger
